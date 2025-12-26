@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
+import Link from 'next/link';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,12 +17,12 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Services', href: '#services' },
-    { name: 'Process', href: '#process' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '/' },
+    { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Services', href: '/services' },
+    { name: 'Process', href: '/process' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' }
   ];
 
   return (
@@ -61,26 +62,26 @@ export function Navbar() {
         }`}>
         <div className='max-w-7xl mx-auto px-6 lg:px-8'>
           <div className='flex items-center justify-between'>
-            <a href='#home' className='text-2xl tracking-widest'>
+            <Link href='/' className='text-2xl tracking-widest'>
               LUXE INTERIORS
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className='hidden lg:flex items-center gap-8'>
               {navLinks.map(link => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className='text-sm tracking-wider hover:text-muted-foreground transition-colors relative group'>
                   {link.name}
                   <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300'></span>
-                </a>
+                </Link>
               ))}
-              <a
-                href='#contact'
+              <Link
+                href='/contact'
                 className='bg-primary text-primary-foreground px-6 py-3 text-sm tracking-wider hover:bg-primary/90 transition-colors'>
                 BOOK NOW
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -97,20 +98,20 @@ export function Navbar() {
             <div className='lg:hidden mt-6 pb-4 border-t border-border pt-4'>
               <div className='flex flex-col gap-4'>
                 {navLinks.map(link => (
-                  <a
+                  <Link
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className='text-sm tracking-wider hover:text-muted-foreground transition-colors py-2'>
                     {link.name}
-                  </a>
+                  </Link>
                 ))}
-                <a
-                  href='#contact'
+                <Link
+                  href='/contact'
                   onClick={() => setIsMobileMenuOpen(false)}
                   className='bg-primary text-primary-foreground px-6 py-3 text-sm tracking-wider hover:bg-primary/90 transition-colors text-center mt-2'>
                   BOOK NOW
-                </a>
+                </Link>
               </div>
             </div>
           )}
