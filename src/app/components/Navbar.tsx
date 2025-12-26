@@ -104,28 +104,34 @@ export function Navbar() {
 
           {/* Mobile Navigation */}
           {isMobileMenuOpen && (
-            <div className='lg:hidden mt-6 pb-4 border-t border-border pt-4'>
-              <div className='flex flex-col gap-4'>
-                {navLinks.map(link => {
-                  const isActive = pathname === link.href;
-                  return (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`text-sm tracking-wider transition-colors py-2 ${
-                        isActive ? 'text-primary font-medium' : 'hover:text-muted-foreground'
-                      }`}>
-                      {link.name}
-                    </Link>
-                  );
-                })}
-                <Link
-                  href='/contact'
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className='bg-primary text-primary-foreground px-6 py-3 text-sm tracking-wider hover:bg-primary/90 transition-colors text-center mt-2'>
-                  BOOK NOW
-                </Link>
+            <div className='lg:hidden mt-6 mx-2 bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-border/50 overflow-hidden'>
+              <div className='px-6 py-6'>
+                <div className='flex flex-col space-y-1'>
+                  {navLinks.map(link => {
+                    const isActive = pathname === link.href;
+                    return (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`block px-4 py-3 text-base tracking-wider transition-all duration-200 rounded-lg ${
+                          isActive
+                            ? 'bg-primary/10 text-primary font-medium border-l-4 border-primary'
+                            : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
+                        }`}>
+                        {link.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+                <div className='mt-6 pt-4 border-t border-border/30'>
+                  <Link
+                    href='/contact'
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className='block w-full bg-primary text-primary-foreground px-6 py-4 text-base font-medium tracking-wider hover:bg-primary/90 transition-colors text-center rounded-lg shadow-sm'>
+                    BOOK NOW
+                  </Link>
+                </div>
               </div>
             </div>
           )}

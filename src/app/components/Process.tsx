@@ -10,7 +10,6 @@ import {
   Sparkles,
   HeartHandshake
 } from 'lucide-react';
-import { Carousel } from './ui/carousel';
 
 const steps = [
   {
@@ -102,32 +101,44 @@ export function Process() {
 
         {/* Process Steps */}
         {isMobile ? (
-          <Carousel className='max-w-md mx-auto'>
+          <div className='space-y-6'>
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <div key={index} className='px-3'>
-                  <div className='bg-white p-10 h-full border-l border-neutral-200 hover:border-neutral-400 transition-colors duration-700'>
-                    <div className='text-[5rem] leading-none font-serif text-neutral-300 mb-8 font-light'>
-                      {step.number}
+                <div key={index} className='relative'>
+                  {/* Timeline line */}
+                  {index < steps.length - 1 && (
+                    <div className='absolute left-6 top-16 w-0.5 h-12 bg-neutral-200'></div>
+                  )}
+
+                  <div className='flex gap-4'>
+                    {/* Number/Icon container */}
+                    <div className='flex flex-col items-center flex-shrink-0'>
+                      <div className='w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-2'>
+                        <Icon size={20} strokeWidth={1.5} className='text-primary' />
+                      </div>
+                      <div className='text-xl font-serif text-neutral-700 font-medium'>
+                        {step.number}
+                      </div>
                     </div>
-                    <div className='w-12 h-12 flex items-center justify-center mb-8'>
-                      <Icon size={28} strokeWidth={1} className='text-neutral-700' />
+
+                    {/* Content */}
+                    <div className='flex-1 pb-8'>
+                      <p className='text-xs uppercase tracking-[0.2em] text-neutral-500 mb-2 font-light'>
+                        {step.subtitle}
+                      </p>
+                      <h3 className='text-lg font-serif mb-3 text-neutral-900 leading-snug font-normal'>
+                        {step.title}
+                      </h3>
+                      <p className='text-neutral-600 leading-relaxed text-sm font-light'>
+                        {step.description}
+                      </p>
                     </div>
-                    <p className='text-xs uppercase tracking-[0.25em] text-neutral-500 mb-3 font-light'>
-                      {step.subtitle}
-                    </p>
-                    <h3 className='text-xl font-serif mb-6 text-neutral-900 leading-snug font-normal'>
-                      {step.title}
-                    </h3>
-                    <p className='text-neutral-600 leading-relaxed text-[15px] font-light'>
-                      {step.description}
-                    </p>
                   </div>
                 </div>
               );
             })}
-          </Carousel>
+          </div>
         ) : (
           <div className='space-y-2'>
             {steps.map((step, index) => {
