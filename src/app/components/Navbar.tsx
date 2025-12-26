@@ -3,10 +3,12 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +21,6 @@ export function Navbar() {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Services', href: '/services' },
     { name: 'Process', href: '/process' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' }
@@ -29,7 +30,7 @@ export function Navbar() {
     <>
       {/* Top Bar */}
       <div
-        className={`${
+        className={`fixed top-0 left-0 right-0 z-50 ${
           isScrolled ? 'hidden' : 'block'
         } bg-primary text-primary-foreground py-2 px-6 lg:px-8 text-sm`}>
         <div className='max-w-7xl mx-auto flex justify-between items-center'>
@@ -55,7 +56,7 @@ export function Navbar() {
 
       {/* Main Navigation */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
             ? 'bg-white/98 backdrop-blur-md shadow-lg py-4 mt-0'
             : 'bg-transparent py-6 mt-10'
@@ -68,15 +69,23 @@ export function Navbar() {
 
             {/* Desktop Navigation */}
             <div className='hidden lg:flex items-center gap-8'>
-              {navLinks.map(link => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className='text-sm tracking-wider hover:text-muted-foreground transition-colors relative group'>
-                  {link.name}
-                  <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300'></span>
-                </Link>
-              ))}
+              {navLinks.map(link => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`text-sm tracking-wider transition-colors relative group ${
+                      isActive ? 'text-primary' : 'hover:text-muted-foreground'
+                    }`}>
+                    {link.name}
+                    <span
+                      className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}></span>
+                  </Link>
+                );
+              })}
               <Link
                 href='/contact'
                 className='bg-primary text-primary-foreground px-6 py-3 text-sm tracking-wider hover:bg-primary/90 transition-colors'>
@@ -97,15 +106,20 @@ export function Navbar() {
           {isMobileMenuOpen && (
             <div className='lg:hidden mt-6 pb-4 border-t border-border pt-4'>
               <div className='flex flex-col gap-4'>
-                {navLinks.map(link => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className='text-sm tracking-wider hover:text-muted-foreground transition-colors py-2'>
-                    {link.name}
-                  </Link>
-                ))}
+                {navLinks.map(link => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`text-sm tracking-wider transition-colors py-2 ${
+                        isActive ? 'text-primary font-medium' : 'hover:text-muted-foreground'
+                      }`}>
+                      {link.name}
+                    </Link>
+                  );
+                })}
                 <Link
                   href='/contact'
                   onClick={() => setIsMobileMenuOpen(false)}
