@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Luxury Interior Design Portfolio
 
-## Getting Started
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue)](https://luxury-interior-design-portfolio.vercel.app/)
 
-First, run the development server:
+A sophisticated and elegant portfolio website showcasing luxury interior design services. Built with modern web technologies to provide a seamless user experience, highlighting design projects, services, team expertise, and client testimonials.
+
+## ✨ Features
+
+- **Responsive Design**: Optimized for all devices with a mobile-first approach
+- **Interactive Portfolio**: Dynamic project galleries with before/after comparisons
+- **Service Showcase**: Comprehensive display of interior design services
+- **Team Profiles**: Highlighting design professionals and their expertise
+- **Client Testimonials**: Social proof through customer reviews
+- **Contact Integration**: Easy-to-use contact forms and information
+- **Performance Optimized**: Fast loading with Next.js and optimized assets
+- **SEO Friendly**: Built-in SEO optimizations for better visibility
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 14](https://nextjs.org/) - React framework for production
+- **Language**: [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- **UI Components**: Custom components with [shadcn/ui](https://ui.shadcn.com/)
+- **Fonts**: [Geist](https://vercel.com/font) - Modern font family
+- **Deployment**: [Vercel](https://vercel.com/) - Cloud platform for frontend frameworks
+
+## 📋 Prerequisites
+
+Before running this project, make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (version 18.0 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.io/)
+
+## 🚀 Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/your-username/luxury-interior-design-portfolio.git
+   cd luxury-interior-design-portfolio
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
+
+3. **Run the development server**
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+
+4. **Open your browser**
+
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
+
+## 🏗️ Building for Production
+
+To build the application for production:
 
 ```bash
-npm run dev
+npm run build
 # or
-yarn dev
+yarn build
 # or
-pnpm dev
-# or
-bun dev
+pnpm build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The build artifacts will be stored in the `dist/` directory.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌐 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is deployed on Vercel. The live version is available at:
 
-## Learn More
+[https://luxury-interior-design-portfolio.vercel.app/](https://luxury-interior-design-portfolio.vercel.app/)
 
-To learn more about Next.js, take a look at the following resources:
+### Deploy to Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push your code to a Git repository (GitHub, GitLab, etc.)
+2. Connect your repository to [Vercel](https://vercel.com/)
+3. Vercel will automatically deploy your application
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Project Structure
 
-## Deploy on Vercel
+```
+luxury-interior-design-portfolio/
+├── public/                 # Static assets
+├── src/
+│   ├── app/               # Next.js app directory
+│   │   ├── components/    # Reusable UI components
+│   │   ├── data/         # Static data files
+│   │   └── styles/       # CSS and styling files
+│   └── main.tsx          # Application entry point
+├── package.json           # Dependencies and scripts
+├── tailwind.config.ts     # Tailwind CSS configuration
+├── next.config.ts         # Next.js configuration
+└── tsconfig.json          # TypeScript configuration
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+For inquiries or collaborations, please visit the contact page on the live site or reach out through the provided contact information.
+
+---
+
+Built with ❤️ using Next.js and Tailwind CSS
